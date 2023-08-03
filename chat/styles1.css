@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:300,400,400i,500,700&subset=latin,vietnamese,latin-ext,cyrillic,greek,cyrillic-ext,greek-ext);
+
+a{
+    text-align: center;
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #3c4042;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  
+          ::-webkit-scrollbar {
+              width: 0px;
+          }
+  
+          .centered {
+              display: grid;
+              color: rgb(7, 7, 7);
+              font-size: 2vw;
+              place-items: center;
+              height: 90vh;
+              font-family: 'Product Sans', sans-serif;
+          }
+  
+          .centered-link {
+              display: grid;
+              place-items: center;
+              height: 100%;
+          }
+  
+          a {
+              text-decoration: none;
+              color: rgb(223, 203, 203);
+              font-size: 2.2vw;
+              font-weight:600;
+              font-family: 'Product Sans', sans-serif;
+          }
+
+          body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            height: 100vh;
+          }
+          
