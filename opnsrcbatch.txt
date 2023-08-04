@@ -1,8 +1,5 @@
 @echo off
-
-rem Display the banner
-type banner.txt
-echo.
+setlocal enabledelayedexpansion
 
 rem Set color variables
 set "red=[91m"
@@ -11,6 +8,10 @@ set "yellow=[93m"
 set "reset=[0m"
 
 :main
+cls
+type banner.txt
+echo.
+
 echo %green%1. Download InstallForge%reset%
 echo %yellow%2. Go to PMI Documentation%reset%
 echo %red%3. Exit%reset%
@@ -35,11 +36,16 @@ goto :main
 :downloadInstallForge
 echo Downloading InstallForge...
 powershell.exe -Command "& { $url='https://installforge.net/downloads/?i=IFSetup'; $output='InstallForge.exe'; (New-Object Net.WebClient).DownloadFile($url, $output) }"
-echo Download completed!
-timeout /t 2 /nobreak >nul
+if %errorlevel% neq 0 (
+    echo Failed to download InstallForge.
+    timeout /t 2 /nobreak >nul
+) else (
+    echo Download completed!
+    timeout /t 5 >nul
+)
 goto :eof
 
 :goToPMIDocumentation
 echo Opening PMI Documentation...
-start "https://docs.phmi.tk"
+start "" "https://phmi.tk/docs"
 goto :eof
