@@ -5,6 +5,7 @@ rem Set color variables
 set "red=[91m"
 set "green=[92m"
 set "yellow=[93m"
+set "blue=[94m"
 set "reset=[0m"
 
 :main
@@ -15,8 +16,9 @@ echo.
 echo %green%1. Download InstallForge%reset%
 echo %yellow%2. Go to PMI Documentation%reset%
 echo %red%3. Exit%reset%
+echo %blue%4. Unzip Source-Code%reset%
 
-choice /c 123 /n /m "Enter your choice: "
+choice /c 1234 /n /m "Enter your choice: "
 set "choice=%errorlevel%"
 
 if "%choice%"=="1" (
@@ -25,6 +27,8 @@ if "%choice%"=="1" (
     call :goToPMIDocumentation
 ) else if "%choice%"=="3" (
     exit /b
+) else if "%choice%"=="4" (
+    call :unzipSourceCode
 ) else (
     echo Invalid choice. Please try again.
     timeout /t 2 /nobreak >nul
@@ -48,4 +52,18 @@ goto :eof
 :goToPMIDocumentation
 echo Opening PMI Documentation...
 start "" "https://phmi.tk/docs"
+goto :eof
+
+:unzipSourceCode
+echo Unzipping Source-Code...
+powershell.exe -Command "Expand-Archive -Path 'PMI-SRC.zip' -DestinationPath '.' -Force"
+if %errorlevel% neq 0 (
+    echo Failed to unzip Source-Code.
+    timeout /t 2 /nobreak >nul
+) else (
+    echo Unzip completed!
+    del /f /q "PMI-SRC.zip"
+    echo Existing zip file deleted.
+    timeout /t 5 >nul
+)
 goto :eof
