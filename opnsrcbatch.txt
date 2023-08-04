@@ -10,6 +10,7 @@ set "green=[92m"
 set "yellow=[93m"
 set "reset=[0m"
 
+:main
 echo %green%1. Download InstallForge%reset%
 echo %yellow%2. Go to PMI Documentation%reset%
 echo %red%3. Exit%reset%
@@ -29,7 +30,6 @@ if "%choice%"=="1" (
     goto :main
 )
 
-pause
 goto :main
 
 :downloadInstallForge
@@ -43,7 +43,3 @@ goto :eof
 echo Opening PMI Documentation...
 start "https://docs.phmi.tk"
 goto :eof
-
-:end
-echo Press any key to continue...
-pause >nul
