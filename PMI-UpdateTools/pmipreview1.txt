@@ -1,0 +1,37 @@
+@echo off
+title PMI Modpack Updater
+
+:menu
+cls
+echo ------------ PMI Modpack Updater ------------
+echo.
+
+:: Color the options using the "color" command
+color 0A
+echo 1. Update PMI
+color 0E
+echo 2. Go to the PMI website
+color 0C
+echo 3. Exit PMI Updater
+color 0F
+
+echo.
+set /p choice=Enter your choice (1/2/3): 
+
+if "%choice%"=="3" (
+    echo Exiting PMI Modpack Updater...
+    timeout /t 2 >nul
+    exit /b
+)
+
+if "%choice%"=="2" (
+    start https://www.phmi.tk
+    timeout /t 2 >nul
+)
+
+if "%choice%"=="1" (
+    echo No new updates for PMI yet.
+    timeout /t 2 >nul
+)
+
+goto :menu
