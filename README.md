@@ -1,5 +1,3 @@
-# Info
-
 ## Fonts Used
 
 Open Sans Font - https://github.com/googlefonts/opensans
