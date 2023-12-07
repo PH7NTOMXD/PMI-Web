@@ -1,5 +1,4 @@
 ## Fonts Used
-
 Open Sans Font - https://github.com/googlefonts/opensans
 IBM Plex Sans Font - https://fonts.google.com/specimen/IBM+Plex+Sans
 Playfair Display Font - https://github.com/clauseggers/Playfair-Display
